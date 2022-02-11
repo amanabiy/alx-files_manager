@@ -8,8 +8,7 @@ class DBClient {
     const database = process.env.DB_DATABASE || 'files_manager';
 
     // connect to mongodb
-    // const url = `mongodb://${host}:${port}/`;
-    const url = 'mongodb+srv://shop:4yuVpkq0q2SGld2z@cluster0.7j188.mongodb.net/Cluster0?retryWrites=true&w=majority';
+    const url = `mongodb://${host}:${port}/`;
     MongoClient.connect(url, { useUnifiedTopology: true }, (err, db) => {
       if (err) console.log(err);
       this.db = db.db(database);
@@ -45,4 +44,4 @@ class DBClient {
 }
 
 const dbClient = new DBClient();
-export default new DBClient();
+export default dbClient;
